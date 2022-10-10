@@ -1,0 +1,38 @@
+.input:focus {
+
+}
+
+.input {
+
+    height: 36px;
+    width: 372px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.superInput {
+
+}
+
+.errorInput {
+
+    border: 1px solid red;
+}
+
+.errorInp t:focus {
+
+
+}
+
+.error {
+
+    font-size: 10px;
+    color: #CC1439;
+    margin-bottom: 5px;
+}
