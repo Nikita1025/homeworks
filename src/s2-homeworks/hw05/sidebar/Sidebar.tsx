@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState} from 'react'
+import React, {FC} from 'react'
 import {NavLink} from 'react-router-dom'
 import s from './Sidebar.module.css'
 import {PATH} from '../Pages'
@@ -13,7 +13,8 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
 
-
+    const Active = s.nav
+        + (open ? ' ' + s.active : '')
     return (
         <>
             {/*затемнение справа от открытого меню*/}
@@ -33,7 +34,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         id={'hw5-pre-junior-link'}
                         to={PATH.PRE_JUNIOR}
                         onClick={handleClose}
-                         className={s.active} // делает студент
+                        className={ Active } // делает студент
                     >
                         Pre-junior
                     </NavLink>
