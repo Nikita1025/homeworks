@@ -1,7 +1,9 @@
 .sidebar {
+    display: none;
 }
 
 .sidebar.open {
+    display:block;
 }
 
 .background {
