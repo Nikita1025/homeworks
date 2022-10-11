@@ -9,9 +9,14 @@
 
 .nav {
     color: blue;
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+    padding-top: 63px;
 }
 
 .nav a {
+    margin-bottom: 45px;
 }
 
 .nav a:hover {

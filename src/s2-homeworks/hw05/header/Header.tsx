@@ -12,10 +12,7 @@ export const Header: FC<PropsType> = ({handleOpen}) => {
     // hw5-menu изначально отсутствует, при нажатии на бургер - появляется, при повторном нажатии исчезает
     const location = useLocation()
     const currentPath = location.pathname
-    let [inp, setInp] = useState(false)
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setInp(e.currentTarget.checked)
-    }
+
     const pageName =
         currentPath === PATH.PRE_JUNIOR
             ? 'Pre-junior'
@@ -34,7 +31,6 @@ export const Header: FC<PropsType> = ({handleOpen}) => {
                     onClick={handleOpen}
                     alt={'open menu'}
                 />
-                <input type={"checkbox"} onChange={onChangeHandler}/>
                 <h1>{pageName}</h1>
 
             </div>
