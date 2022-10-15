@@ -31,7 +31,8 @@ export const Header: FC<PropsType> = ({handleOpen}) => {
                     onClick={handleOpen}
                     alt={'open menu'}
                 />
-                <h1>{pageName}</h1>
+                <h1>Homework #5</h1>
+
 
             </div>
         </>
