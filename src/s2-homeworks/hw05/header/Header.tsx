@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState} from 'react'
+import React, {FC} from 'react'
 import burgerIcon from './burger.svg'
 import s from './Header.module.css'
 import {useLocation} from 'react-router-dom'
@@ -31,7 +31,7 @@ export const Header: FC<PropsType> = ({handleOpen}) => {
                     onClick={handleOpen}
                     alt={'open menu'}
                 />
-                <h1>Homework #5</h1>
+                <h1>{pageName}</h1>
 
 
             </div>

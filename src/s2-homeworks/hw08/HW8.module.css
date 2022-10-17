@@ -1,8 +1,6 @@
 .item {
-    height: 15px;
-    color: black;
-    width: 100%;
-    border: 1px solid red;
+
+
 }
 
 .item:last-of-type {
@@ -12,23 +10,34 @@
 }
 
 .buttonsContainer {
+    display: flex;
+    justify-content: end;
+
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+max-width: 606px;
+
 }
 
 .thead {
+    background-color: #e5e5e5;
+    height: 36px;
+
 }
 
 .nameCol {
+
 }
 
 .ageCol {
+
 }
 
 .tbody {
-    display: block;
-    width: 500px;
-    color: black;
-    border: 1px solid red;
+
+
 }

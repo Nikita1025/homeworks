@@ -22,12 +22,12 @@
     max-width: 527px;
     height: 20%;
     background-color: #F5F7FB;
-margin-left: 14px;
+    margin-left: 14px;
     border-radius: 10px 10px 10px 0;
 
 }
 
-.trianglebottomright{
+.trianglebottomright {
     position: absolute;
     display: inline-block;
     width: 0;
