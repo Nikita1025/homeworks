@@ -13,18 +13,17 @@ function Clock() {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
         stop()
-        const id: number = window.setInterval(() => {
-            setDate(date)
+        const id: number = +setInterval(() => {
+            setDate(new Date())
         }, 1000)
         setTimerId(id)
     }
 
 
-
-
     const stop = () => {
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
-
+        clearInterval(timerId)
+        setTimerId(undefined)
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
@@ -33,15 +32,15 @@ function Clock() {
     const onMouseLeave = () => { // пишут студенты // спрятать дату если мышка не наведена
         setShow(false)
     }
-    const stringTime = date.toLocaleTimeString('ru')|| <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+    const stringTime = date.toLocaleTimeString('ru') || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
     const stringDate = date.toLocaleDateString('ru') || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-    const stringDay = date.toLocaleDateString('en-US',{
+    const stringDay = date.toLocaleDateString('en-US', {
         weekday: 'long'
     }) || <br/> // пишут студенты
 
-    const stringMonth = date.toLocaleDateString('en-US',{
+    const stringMonth = date.toLocaleDateString('en-US', {
         month: "long"
     }) || <br/> // пишут студенты
 
@@ -78,14 +77,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={false} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={!stop} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={false} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={!start} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
