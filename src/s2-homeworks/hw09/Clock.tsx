@@ -8,7 +8,6 @@ function Clock() {
     // for autotests // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
     const [show, setShow] = useState<boolean>(false)
-
     const start = () => {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
@@ -44,7 +43,6 @@ function Clock() {
         month: "long"
     }) || <br/> // пишут студенты
 
-
     return (
         <div className={s.clock}>
             <div
@@ -77,14 +75,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={!stop} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={!timerId? false: true} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={!start} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={!timerId ? true:false} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
