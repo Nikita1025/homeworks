@@ -33,9 +33,10 @@ const HW10 = () => {
             <div className={s2.hwTitle}>Homework #10</div>
 
             <div className={s2.hw}>
-                {isLoading ? (
+                {selector ? (
                     <div id={'hw10-loading'}>
-                        <Loader/>
+                        <img src="https://freesvg.org/img/1544764567.png" alt="loader" />
+                        {/*<Loader/>*/}
                     </div>
                 ) : (
                     <SuperButton
