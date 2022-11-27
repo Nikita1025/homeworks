@@ -1,8 +1,4 @@
 .loader {
-
-    height: 40vh;
-    width: 20vw;
-
-    /*свг и/или анимация*/
-    background-image: url("https://freesvg.org/img/1544764567.png");
+    height: 90px;
+    width: 90px;
 }

@@ -1,10 +1,9 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStoreType} from './bll/store'
-import {loadingAC, LoadingActionType} from './bll/loadingReducer'
+import {loadingAC} from './bll/loadingReducer'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import s2 from '../../s1-main/App.module.css'
-import {Loader} from './Loader'
 
 /*
 * 1 - в файле loadingReducer.ts дописать типы и логику
@@ -35,8 +34,7 @@ const HW10 = () => {
             <div className={s2.hw}>
                 {selector ? (
                     <div id={'hw10-loading'}>
-                        <img src="https://freesvg.org/img/1544764567.png" alt="loader" />
-                        {/*<Loader/>*/}
+                        <img src="https://acegif.com/wp-content/uploads/loading-23.gif" alt="loader"  style={{width: '120px', height:'120px'}}/>
                     </div>
                 ) : (
                     <SuperButton
