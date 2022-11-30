@@ -5,7 +5,6 @@ const initState = {
     themeId: number
 }
 export const themeReducer = (state = initState, action: changeThemeIdType): initStateType => { // fix any
-    debugger
     switch (action.type) {
         // дописать
         case "SET_THEME_ID":
