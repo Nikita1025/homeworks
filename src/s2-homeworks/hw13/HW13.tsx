@@ -38,18 +38,18 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 // дописат
-                setText(res.data.info)
+                setText(res.data.info + ' ' + res.data.errorText)
                 setInfo('')
             })
             .catch((e) => {
                 // дописать
                 console.log(e)
                     if(e.response.status === 400){
-                        return setImage(error400),  setCode('Код 400!'), setText(e.response.data.info), setInfo('')
+                        return setImage(error400),  setCode('Код 400!'), setInfo(''),setText(e.response.data.errorText + ' ' +e.response.data.info)
                     }else if (e.response.status === 500){
-                        return setImage(error500),  setCode('Код 500!'), setText(e.response.data.info), setInfo('')
+                        return setImage(error500),  setCode('Код 500!'), setInfo(''),setText(e.response.data.errorText + ' ' +e.response.data.info)
                     }else {
-                        return setImage(errorUnknown), setCode('Error!'), setText('Network Error AxiosError'), setInfo('')
+                        return setImage(errorUnknown), setCode('Error!'), setInfo(''), setText(e.name + ' ' + e.message)
                     }
 
 
