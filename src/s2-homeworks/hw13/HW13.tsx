@@ -44,11 +44,11 @@ const HW13 = () => {
             .catch((e) => {
                 console.log(e)
                 if (e.response.status === 400) {
-                    setImage(error400), setCode('Код 400!'), setInfo(e.response.data.info), setText(e.response.data.errorText)
+                    return  setImage(error400), setCode('Код 400!'), setInfo(e.response.data.info), setText(e.response.data.errorText)
                 } else if (e.response.status === 500) {
-                    setImage(error500), setCode('Код 500!'), setInfo(e.response.data.info), setText(e.response.data.errorText)
+                    return setImage(error500), setCode('Код 500!'), setInfo(e.response.data.info), setText(e.response.data.errorText)
                 } else {
-                    setImage(errorUnknown), setCode('Error!'), setInfo(e.message), setText(e.name)
+                    return setImage(errorUnknown), setCode('Error!'), setInfo(e.message), setText(e.name)
                 }
             })
     }
