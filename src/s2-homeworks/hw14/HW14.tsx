@@ -36,9 +36,7 @@ const HW14 = () => {
             .then((res) => {
                 // делает студент
                 console.log(res?.data.techs)
-               if(res?.statusText==='OK'){
-                   setTechs(res.data.techs)
-               }
+               setTechs(res?.data.techs!)
                setLoading(false)
                 // сохранить пришедшие данные
 
