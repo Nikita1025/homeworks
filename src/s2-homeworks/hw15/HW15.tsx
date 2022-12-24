@@ -47,7 +47,7 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: ParamsType) => {
+    const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
@@ -67,9 +67,13 @@ const HW15 = () => {
         // setCount(
         setPage(newPage)
         setCount(newCount)
-        sendQuery({count:newCount, sort, page:newPage})
+        const pageQuery:{page?:string}=newPage!==1?{page:newPage + ''}:{}
+        const countQuery:{count?:string}=newCount!==4?{count:newCount + ''}:{}
+        const {count, page, ...lastQueries}= Object.fromEntries(searchParams)
+        const allQuery = {...lastQueries, ...pageQuery}
+         sendQuery(allQuery)
         // sendQuery(
-         setSearchParams({...Object.fromEntries(searchParams), page: String(newPage)})
+         setSearchParams(allQuery)
         //
     }
 
@@ -82,14 +86,17 @@ const HW15 = () => {
 
         // sendQuery(
         // setSearchParams(
-        sendQuery({count, sort, page})
-        setSearchParams({...Object.fromEntries(searchParams), sort: newSort})
+        const sortQuery:{sort?:string}= newSort!== ''?{sort:newSort}:{}
+        const {sort,page,...lastQueries}=Object.fromEntries(searchParams)
+        const allQuery = {...lastQueries,...sortQuery}
+        sendQuery(allQuery)
+        setSearchParams(allQuery)
         //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({ page: +params.page, count: +params.count, sort})
+        sendQuery({ page: +params.page, count: +params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
