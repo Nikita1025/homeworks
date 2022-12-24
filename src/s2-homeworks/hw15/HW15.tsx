@@ -51,6 +51,7 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
+                console.log(res?.data)
                 // делает студент
                 setTechs(res?.data.techs!)
                 setLoading(false)
@@ -96,7 +97,7 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({ page: +params.page, count: +params.count})
+        sendQuery({ page: +params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
