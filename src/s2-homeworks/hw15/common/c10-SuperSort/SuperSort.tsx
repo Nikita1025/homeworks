@@ -1,11 +1,13 @@
 import React from 'react'
-import downIcon from '../../../../Icon/DownIcon.svg'
-import upIcon from '../../../../Icon/UpIcon.svg'
+import downIcon from '../../../../Icon/Duwn.svg'
+import upIcon from '../../../../Icon/Up.svg'
+import noneIcon from '../../../../Icon/NoneIcon.png'
+
 import {upload} from "@testing-library/user-event/dist/upload";
 // добавить в проект иконки и импортировать
 // const downIcon = '[\\/]'
 // const upIcon = '[/\\]'
-const noneIcon = '[--]'
+// const noneIcon = '[--]'
 
 export type SuperSortPropsType = {
     id?: string
