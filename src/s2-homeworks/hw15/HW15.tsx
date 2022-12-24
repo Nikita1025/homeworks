@@ -68,10 +68,12 @@ const HW15 = () => {
         // setCount(
         setPage(newPage)
         setCount(newCount)
+        console.log(newCount)
         const pageQuery:{page?:string}=newPage!==1?{page:newPage + ''}:{}
         const countQuery:{count?:string}=newCount!==4?{count:newCount + ''}:{}
         const {count, page, ...lastQueries}= Object.fromEntries(searchParams)
-        const allQuery = {...lastQueries, ...pageQuery}
+        console.log(pageQuery)
+        const allQuery = {...lastQueries, ...pageQuery,...countQuery}
          sendQuery(allQuery)
         // sendQuery(
          setSearchParams(allQuery)
@@ -97,10 +99,11 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({ page: +params.page, count: params.count})
+        sendQuery({ page: +params.page?+params.page:1, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
+
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>
