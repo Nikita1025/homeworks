@@ -1,8 +1,9 @@
 import React from 'react'
-
+import downIcon from '../../../../Icon/DownIcon.svg'
+import upIcon from '../../../../Icon/UpIcon.svg'
 // добавить в проект иконки и импортировать
-const downIcon = '[\\/]'
-const upIcon = '[/\\]'
+// const downIcon = '[\\/]'
+// const upIcon = '[/\\]'
 const noneIcon = '[--]'
 
 export type SuperSortPropsType = {
@@ -14,41 +15,48 @@ export type SuperSortPropsType = {
 
 export const pureChange = (sort: string, down: string, up: string) => {
     // пишет студент, sort: (click) => down (click) => up (click) => '' (click) => down ...
-    return up // исправить
+    if (sort === '') {
+        return down
+    } else if (sort === down) {
+        return up
+    } else if (sort === up) {
+        return ''
+    }else if (sort !== up && down){
+        return down
+    }
+    return up
 }
 
-const SuperSort: React.FC<SuperSortPropsType> = (
-    {
-        sort, value, onChange, id = 'hw15',
-    }
-) => {
-    const up = '0' + value
-    const down = '1' + value
+    const SuperSort: React.FC<SuperSortPropsType> = (
+        {
+            sort, value, onChange, id = 'hw15',
+        }
+    ) => {
+        const up = '0' + value
+        const down = '1' + value
 
-    const onChangeCallback = () => {
-        onChange(pureChange(sort, down, up))
-    }
+        const onChangeCallback = () => {
+            onChange(pureChange(sort, down, up))
+        }
 
-    const icon = sort === down
-        ? downIcon
-        : sort === up
-            ? upIcon
-            : noneIcon
+        const icon = sort === down
+            ? downIcon
+            : sort === up
+                ? upIcon
+                : noneIcon
 
-    return (
-        <span
-            id={id + '-sort-' + value}
-            onClick={onChangeCallback}
-        >
+        return (
+            <span
+                id={id + '-sort-' + value}
+                onClick={onChangeCallback}
+            >
             {/*сделать иконку*/}
-            {/*<img*/}
-            {/*    id={id + '-icon-' + sort}*/}
-            {/*    src={icon}*/}
-            {/*/>*/}
-
-            {icon} {/*а это убрать*/}
+                <img
+                    id={id + '-icon-' + sort}
+                    src={icon}
+                />
         </span>
-    )
-}
+        )
+    }
 
 export default SuperSort
